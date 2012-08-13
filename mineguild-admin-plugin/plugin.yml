@@ -4,7 +4,7 @@ version: 0.2
 commands:
     vers:
         description: Display version
-        usage: /vers
+        usage: /mga vers
         permission: mga.vers
         permission-message: You dont have permissions to do this.
     test:
