@@ -7,10 +7,11 @@ private MGACommandExecutor myExecutor;
 @Override
 //Enabling Plugin
 public void onEnable(){
-myExecutor = new MGACommandExecutor (this);
+myExecutor = new MGACommandExecutor (null);
 //Sending commands to MGACommandExecutor
+getCommand("vers").setExecutor(myExecutor);
 getCommand("test").setExecutor(myExecutor);
-getCommand("version").setExecutor(myExecutor);
+//Send message to console
 getLogger().info("MineguildAdmin has been enabled!");
 }
 //Disabling Plugin

@@ -2,8 +2,13 @@ name: MineguildAdmin
 main: com.github.mineguild.MineguildAdmin.Main
 version: 0.2
 commands:
+    vers:
+        description: Display version
+        usage: /vers
+        permission: mga.vers
+        permission-message: You dont have permissions to do this.
     test:
         description: Test command
-        usage: /version [player]
+        usage: /test
         permission: mga.test
         permission-message: You dont have permissions to do this.
