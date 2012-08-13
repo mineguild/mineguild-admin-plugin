@@ -9,5 +9,4 @@ public void onEnable(){
 public void onDisable(){
 	getLogger().info("MineguildAdmin has been disabled!");
 }
-
 }
