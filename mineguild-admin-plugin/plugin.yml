@@ -6,4 +6,4 @@ commands:
         description: Test command
         usage: /test [player]
         permission: mga.test
-        permission-message: You dont have permissions to do this opfa.
+        permission-message: You dont have permissions to do this.
