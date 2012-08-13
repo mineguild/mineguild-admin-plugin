@@ -18,8 +18,13 @@ public boolean onCommand(CommandSender sender, Command cmd, String label, String
 		sender.sendMessage("MineguildAdmin V0.2");
 		return true;
 	}
-	if(cmd.getName().equalsIgnoreCase("test")){
-		sender.sendMessage("Test");
+	//Else return false
+	return false;
+}
+public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
+	if(cmd.getName().equalsIgnoreCase("ping")){
+		//Show version to sender and return true
+		sender.sendMessage("pong");
 		return true;
 	}
 	//Else return false
