@@ -2,6 +2,9 @@ name: MineguildAdmin
 main: com.github.mineguild.MineguildAdmin.Main
 version: 0.3
 commands:
+    mga:
+        description: Basic MGA command
+        usage: /mga help
     vers:
         description: Display version
         usage: /mga vers
