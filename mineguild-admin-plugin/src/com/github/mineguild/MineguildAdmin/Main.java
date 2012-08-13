@@ -9,8 +9,7 @@ private MGACommandExecutor myExecutor;
 public void onEnable(){
 myExecutor = new MGACommandExecutor (null);
 //Sending commands to MGACommandExecutor
-getCommand("vers").setExecutor(myExecutor);
-getCommand("test").setExecutor(myExecutor);
+getCommand("mga").setExecutor(myExecutor);
 //Send message to console
 getLogger().info("MineguildAdmin has been enabled!");
 }

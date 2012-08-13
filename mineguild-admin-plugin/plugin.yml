@@ -4,14 +4,6 @@ version: 0.3
 commands:
     mga:
         description: Basic MGA command
-        usage: /mga help
-    vers:
-        description: Display version
-        usage: /mga vers
-        permission: mga.vers
-        permission-message: You dont have permissions to do this.
-    test:
-        description: Test command
-        usage: /test
-        permission: mga.test
+        usage: Unknown Command. Usage: /mga help
+        permission: mga.mga
         permission-message: You dont have permissions to do this.
