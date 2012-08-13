@@ -5,8 +5,9 @@ import org.bukkit.command.CommandSender;
 
 public class Main extends org.bukkit.plugin.java.JavaPlugin {
 //Enabling Plugin
+
 public void onEnable(){
-	getLogger().info("MineguildAdmin has been enabled!");
+getLogger().info("MineguildAdmin has been enabled!");
 }
 //Disabling Plugin
 public void onDisable(){
