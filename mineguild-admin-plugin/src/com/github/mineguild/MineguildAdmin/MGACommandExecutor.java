@@ -27,9 +27,10 @@ public class MGACommandExecutor implements CommandExecutor {
 				return true;
 				}
 			}
-		 if(cmd.getName().equalsIgnoreCase("gm")){
+		 if(cmd.getName().equalsIgnoreCase("gm") && sender instanceof Player){
 			 if(args.length == 0){
 				 Player p = (Player) sender;
+				 
 				 if (p.getGameMode().equals(GameMode.SURVIVAL)){
 					 p.setGameMode(GameMode.CREATIVE);
 					 return true;
@@ -39,6 +40,10 @@ public class MGACommandExecutor implements CommandExecutor {
 					 return true;
 				 }
 			 }
+		 }
+		 else {
+			 sender.sendMessage("Please use /gm <player> on consolse");
+			 return true;
 		 }
 			 if(args.length == 1) {
 				 Player p = Bukkit.getPlayerExact(args[0]);
