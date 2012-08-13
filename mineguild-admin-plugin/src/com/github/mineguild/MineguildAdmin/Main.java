@@ -7,7 +7,7 @@ private MGACommandExecutor myExecutor;
 @Override
 //Enabling Plugin
 public void onEnable(){
-myExecutor = new MGACommandExecutor ();
+myExecutor = new MGACommandExecutor (this);
 //Sending commands to MGACommandExecutor
 getCommand("test").setExecutor(myExecutor);
 getCommand("version").setExecutor(myExecutor);
