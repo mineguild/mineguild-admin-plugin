@@ -15,7 +15,7 @@ public void onDisable(){
 public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 	if(cmd.getName().equalsIgnoreCase("version")){
 		//Do nothing only return true
-		sender.sendMessage("MineguildAdmin V0.1");
+		sender.sendMessage("MineguildAdmin V0.2");
 		return true;
 	}
 	//Else return false
