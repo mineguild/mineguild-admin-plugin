@@ -34,9 +34,9 @@ public class MGACommandExecutor implements CommandExecutor {
 					 p.setGameMode(GameMode.SURVIVAL);
 					 return true;
 				 }
-				 
 			 }
-			 else {
+		 }
+			 if(args.length == 1) {
 				 Player p = Bukkit.getPlayerExact(args[0]);
 				 if (p.getGameMode().equals(GameMode.SURVIVAL)){
 					 p.setGameMode(GameMode.CREATIVE);
@@ -47,7 +47,7 @@ public class MGACommandExecutor implements CommandExecutor {
 					 return true;
 				 }				 
 			 }
-		 }
+		 
 		 
 		 return false;
 	}

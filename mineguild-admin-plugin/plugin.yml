@@ -4,6 +4,11 @@ version: 0.3
 commands:
     mga:
         description: Basic MGA command
-        usage: Unknown Command. Usage: /mga help
+        usage: Unknown Command. Usage /mga help
         permission: mga.mga
+        permission-message: You dont have permissions to do this.
+    gm:
+        description: Change gamemode
+        usage: /gm [player]
+        permission: mga.gm
         permission-message: You dont have permissions to do this.
