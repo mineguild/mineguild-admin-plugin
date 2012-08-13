@@ -6,10 +6,7 @@ import org.bukkit.command.CommandSender;
 
 public class MGACommandExecutor implements CommandExecutor {
 
-	private Main plugin;
-	
 	public MGACommandExecutor(Main plugin) {
-		this.plugin = plugin;
 	}
 	@Override
 		public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
