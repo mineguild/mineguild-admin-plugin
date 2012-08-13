@@ -10,7 +10,7 @@ public void onEnable(){
 }
 //Disabling Plugin
 public void onDisable(){
-	getLogger().info("MineguildAdmin has been disabled!");
+	getLogger().info("MineguildAdmin has been disable!");
 }
 public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 	if(cmd.getName().equalsIgnoreCase("version")){
