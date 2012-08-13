@@ -19,7 +19,7 @@ public class MGACommandExecutor implements CommandExecutor {
 		public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 			if(cmd.getName().equalsIgnoreCase("mga")){
 				//If the args are length 0 or the args[0] isnt equal "version" it will return false
-				if (args.length == 0 && !args[0].equalsIgnoreCase("version")){
+				if (args.length == 0 || !args[0].equalsIgnoreCase("version")){
 					return false;
 				}
 				if (args[0].equalsIgnoreCase("version")) {
@@ -48,7 +48,7 @@ public class MGACommandExecutor implements CommandExecutor {
 				 }
 				 //If the sender is not instanceof player send message with console use back to the sender
 				 else {
-					 sender.sendMessage(ChatColor.RED+"Please use /gm <player> on console");
+					 sender.sendMessage(ChatColor.RED+"Please use /gm <player> on console!");
 					 return true;
 				 } 
 			 }

@@ -4,8 +4,7 @@ import org.bukkit.plugin.PluginDescriptionFile;
 
 public class Main extends org.bukkit.plugin.java.JavaPlugin {
 	
-	//Getting Plugin description file public
-	PluginDescriptionFile pdffile = this.getDescription();
+
 	
 //Calling MGACommandExecutor as Executor
 private MGACommandExecutor CMDEXE;
@@ -27,6 +26,8 @@ public void onEnable(){
 }
 //Disabling Plugin
 public void onDisable(){
+	//Getting Plugin description file
+	PluginDescriptionFile pdffile = this.getDescription();
 	getLogger().info("MineguildAdmin V" + pdffile.getVersion() + " has been disabled!");
 }
 }
