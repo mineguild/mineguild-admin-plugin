@@ -15,7 +15,7 @@ public void onDisable(){
 public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 	if(cmd.getName().equalsIgnoreCase("test")){
 		//Do nothing only return true
-		return true;
+		sender.sendMessage("Du bist nett :D");
 	}
 	//Else return false
 	return false;
