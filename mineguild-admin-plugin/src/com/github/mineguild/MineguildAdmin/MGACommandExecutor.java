@@ -1,6 +1,7 @@
 package com.github.mineguild.MineguildAdmin;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -15,6 +16,9 @@ public class MGACommandExecutor implements CommandExecutor {
 		public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 			if(cmd.getName().equalsIgnoreCase("mga")){
 				if (args.length == 0){
+					return false;
+				}
+				if (!args[0].equalsIgnoreCase("version")){
 					return false;
 				}
 				if (args[0].equalsIgnoreCase("version")) {
@@ -38,17 +42,23 @@ public class MGACommandExecutor implements CommandExecutor {
 		 }
 			 if(args.length == 1) {
 				 Player p = Bukkit.getPlayerExact(args[0]);
-				 if (p.getGameMode().equals(GameMode.SURVIVAL)){
-					 p.setGameMode(GameMode.CREATIVE);
+				 if(p != null){
+					 if (p.getGameMode().equals(GameMode.SURVIVAL)){
+						 p.setGameMode(GameMode.CREATIVE);
+						 return true;
+					 }
+					 else if (p.getGameMode().equals(GameMode.CREATIVE)){
+						 p.setGameMode(GameMode.SURVIVAL);
+						 return true;
+					 }
+					
+				 
+				 }
+				 else {
+					 sender.sendMessage(ChatColor.RED+"Player is not online!");
 					 return true;
 				 }
-				 else if (p.getGameMode().equals(GameMode.CREATIVE)){
-					 p.setGameMode(GameMode.SURVIVAL);
-					 return true;
-				 }				 
 			 }
-		 
-		 
 		 return false;
 	}
 
