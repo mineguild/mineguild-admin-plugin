@@ -1,5 +1,6 @@
 package com.github.mineguild.MineguildAdmin;
 
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -23,18 +24,31 @@ public class MGACommandExecutor implements CommandExecutor {
 				}
 			}
 		 if(cmd.getName().equalsIgnoreCase("gm")){
-			 Player p = (Player) sender;
 			 if(args.length == 0){
+				 Player p = (Player) sender;
 				 if (p.getGameMode().equals(GameMode.SURVIVAL)){
 					 p.setGameMode(GameMode.CREATIVE);
 					 return true;
 				 }
-				 if (p.getGameMode().equals(GameMode.CREATIVE)){
+				 else if (p.getGameMode().equals(GameMode.CREATIVE)){
 					 p.setGameMode(GameMode.SURVIVAL);
 					 return true;
 				 }
+				 
+			 }
+			 else {
+				 Player p = Bukkit.getPlayerExact(args[0]);
+				 if (p.getGameMode().equals(GameMode.SURVIVAL)){
+					 p.setGameMode(GameMode.CREATIVE);
+					 return true;
+				 }
+				 else if (p.getGameMode().equals(GameMode.CREATIVE)){
+					 p.setGameMode(GameMode.SURVIVAL);
+					 return true;
+				 }				 
 			 }
 		 }
+		 
 		 return false;
 	}
 
