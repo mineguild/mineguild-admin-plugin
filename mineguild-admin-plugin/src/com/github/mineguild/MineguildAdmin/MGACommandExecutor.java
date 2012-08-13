@@ -27,24 +27,27 @@ public class MGACommandExecutor implements CommandExecutor {
 				return true;
 				}
 			}
-		 if(cmd.getName().equalsIgnoreCase("gm") && sender instanceof Player){
+		 if(cmd.getName().equalsIgnoreCase("gm")){
 			 if(args.length == 0){
+				 if(sender instanceof Player){
 				 Player p = (Player) sender;
 				 
-				 if (p.getGameMode().equals(GameMode.SURVIVAL)){
-					 p.setGameMode(GameMode.CREATIVE);
-					 return true;
+					 if (p.getGameMode().equals(GameMode.SURVIVAL)){
+						 p.setGameMode(GameMode.CREATIVE);
+						 return true;
+					 }
+					 else if (p.getGameMode().equals(GameMode.CREATIVE)){
+						 p.setGameMode(GameMode.SURVIVAL);
+						 return true;
+					 }
 				 }
-				 else if (p.getGameMode().equals(GameMode.CREATIVE)){
-					 p.setGameMode(GameMode.SURVIVAL);
+				 else {
+					 sender.sendMessage(ChatColor.RED+"Please use /gm <player> on console");
 					 return true;
-				 }
+				 } 
 			 }
 		 }
-		 else {
-			 sender.sendMessage("Please use /gm <player> on consolse");
-			 return true;
-		 }
+		
 			 if(args.length == 1) {
 				 Player p = Bukkit.getPlayerExact(args[0]);
 				 if(p != null){
