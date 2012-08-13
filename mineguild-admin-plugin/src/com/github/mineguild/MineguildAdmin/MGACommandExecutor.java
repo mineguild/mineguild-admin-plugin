@@ -13,7 +13,7 @@ public class MGACommandExecutor implements CommandExecutor {
 			if(cmd.getName().equalsIgnoreCase("mga")){
 				if (args[0].equalsIgnoreCase("version")) {
 				//Show version to sender and return true
-				sender.sendMessage("MineguildAdmin V0.2");
+				sender.sendMessage("MineguildAdmin V0.3");
 				return true;
 			}
 			}

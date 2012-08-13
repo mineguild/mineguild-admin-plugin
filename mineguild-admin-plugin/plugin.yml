@@ -1,6 +1,6 @@
 name: MineguildAdmin
 main: com.github.mineguild.MineguildAdmin.Main
-version: 0.2
+version: 0.3
 commands:
     vers:
         description: Display version
