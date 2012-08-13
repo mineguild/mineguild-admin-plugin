@@ -7,12 +7,13 @@ private MGACommandExecutor CMDEXE;
 @Override
 //Enabling Plugin
 public void onEnable(){
+//Interpreting CMDEXE
 CMDEXE = new MGACommandExecutor (null);
 //Sending commands to MGACommandExecutor
 getCommand("mga").setExecutor(CMDEXE);
 getCommand("gm").setExecutor(CMDEXE);
 //Send message to console
-getLogger().info("MineguildAdmin has been enabled!");
+getLogger().info("MineguildAdmin V has been enabled!");
 }
 //Disabling Plugin
 public void onDisable(){

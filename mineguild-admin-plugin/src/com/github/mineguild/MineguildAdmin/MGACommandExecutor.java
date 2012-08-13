@@ -23,7 +23,7 @@ public class MGACommandExecutor implements CommandExecutor {
 				}
 				if (args[0].equalsIgnoreCase("version")) {
 				//Show version to sender and return true
-				sender.sendMessage("MineguildAdmin V0.3");
+				sender.sendMessage("MineguildAdmin V" + pdfFile.getVersion());
 				return true;
 				}
 			}
