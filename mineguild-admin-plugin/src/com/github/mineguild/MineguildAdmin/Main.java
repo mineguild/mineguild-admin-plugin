@@ -13,9 +13,9 @@ public void onDisable(){
 	getLogger().info("MineguildAdmin has been disabled!");
 }
 public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
-	if(cmd.getName().equalsIgnoreCase("test")){
+	if(cmd.getName().equalsIgnoreCase("version")){
 		//Do nothing only return true
-		sender.sendMessage("Du bist nett :D");
+		sender.sendMessage("MineguildAdmin V0.1");
 		return true;
 	}
 	//Else return false

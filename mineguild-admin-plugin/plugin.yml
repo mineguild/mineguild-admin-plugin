@@ -4,6 +4,6 @@ version: 0.2
 commands:
     test:
         description: Test command
-        usage: /test [player]
+        usage: /version [player]
         permission: mga.test
         permission-message: You dont have permissions to do this.
