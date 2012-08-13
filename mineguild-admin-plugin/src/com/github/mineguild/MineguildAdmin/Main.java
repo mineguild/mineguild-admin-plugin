@@ -16,6 +16,7 @@ public boolean onCommand(CommandSender sender, Command cmd, String label, String
 	if(cmd.getName().equalsIgnoreCase("test")){
 		//Do nothing only return true
 		sender.sendMessage("Du bist nett :D");
+		return true;
 	}
 	//Else return false
 	return false;
