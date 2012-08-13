@@ -1,4 +1,8 @@
-mg-mcadmin
+mineguild-admin-plugin
 ==========
+English:
+The Admin-Plugin especially for Mineguild from Mineguild.
+German:
+Das Mineguild-Admin-Plugin, von Mineguild für Mineguild
 
-Mineguild Admin-Plugin Dev.
+Copyright (C) 2012 Mineguild
