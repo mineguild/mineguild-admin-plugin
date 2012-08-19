@@ -71,7 +71,16 @@ public class MGACommandExecutor implements CommandExecutor {
 						 sender.sendMessage(ChatColor.BOLD + "" + ChatColor.GOLD + "Target is now in survival mode!");
 						 return true;
 					 }
-					
+					 else if(args[1].equalsIgnoreCase("c") || args[1].equals(1) ){
+						 p.setGameMode(GameMode.CREATIVE);
+						 sender.sendMessage(ChatColor.BOLD + "" + ChatColor.GOLD + "Target is now in creative mode!");
+						 return true;
+					 }
+					 else if(args[1].equalsIgnoreCase("s") || args[1].equals(0) ){
+						 p.setGameMode(GameMode.SURVIVAL);
+						 sender.sendMessage(ChatColor.BOLD + "" + ChatColor.GOLD + "Target is now in survival mode!");
+						 return true;
+					 }
 				 
 				 }
 				 //If output of Bukkit.getPlayerExact(args[0] was null, send error message.
