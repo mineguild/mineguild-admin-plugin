@@ -63,22 +63,24 @@ public class MGACommandExecutor implements CommandExecutor {
 					 //Also returning true, for the correctness
 					 if (p.getGameMode().equals(GameMode.SURVIVAL)){
 						 p.setGameMode(GameMode.CREATIVE);
-						 sender.sendMessage(ChatColor.BOLD + "" + ChatColor.GOLD + "Target is now in creative mode!");
+						 sender.sendMessage(ChatColor.GOLD + "Target is now in creative mode!");
+						 p.sendMessage(ChatColor.GOLD + "You are now in creative mode!");
 						 return true;
 					 }
 					 else if (p.getGameMode().equals(GameMode.CREATIVE)){
 						 p.setGameMode(GameMode.SURVIVAL);
-						 sender.sendMessage(ChatColor.BOLD + "" + ChatColor.GOLD + "Target is now in survival mode!");
+						 sender.sendMessage(ChatColor.GOLD + "Target is now in survival mode!");
+						 p.sendMessage(ChatColor.GOLD + "You are now in survival mode!");
 						 return true;
 					 }
 					 else if (args[1].equalsIgnoreCase("c")){
 						 p.setGameMode(GameMode.CREATIVE);
-						 sender.sendMessage(ChatColor.BOLD + "" + ChatColor.GOLD + "Target is now in creative mode!");
+						 sender.sendMessage(ChatColor.GOLD + "Target is now in creative mode!");
 						 return true;
 					 }
 					 else if(args[1].equalsIgnoreCase("s")){
 						 p.setGameMode(GameMode.SURVIVAL);
-						 sender.sendMessage(ChatColor.BOLD + "" + ChatColor.GOLD + "Target is now in survival mode!");
+						 sender.sendMessage(ChatColor.GOLD + "Target is now in survival mode!");
 						 return true;
 					 }
 				 
