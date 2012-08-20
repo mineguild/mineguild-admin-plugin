@@ -17,7 +17,8 @@ public class MGACommandExecutor implements CommandExecutor {
 	@Override
 	//Command interpreter
 		public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
-//Introducing /heal command
+		String pre = ChatColor.AQUA + "[MGA]" + ChatColor.WHITE;
+		//Introducing /heal command
 		 if(cmd.getName().equalsIgnoreCase("heal")){
 			 //If there are no args, simply act with the command sender
 			 if(args.length == 0){
@@ -126,8 +127,8 @@ public class MGACommandExecutor implements CommandExecutor {
 						 double hunger = p.getFoodLevel();
 						 hunger = hunger / 2.0;
 						 health = health / 2.0;
-						 sender.sendMessage(ChatColor.RED + string1 +"'s Health is " + health);
-						 sender.sendMessage(ChatColor.RED + string1 +"'s Hunger is " + hunger);
+						 sender.sendMessage(pre + ChatColor.WHITE + string1 +"'s Health is " + health);
+						 sender.sendMessage(ChatColor.AQUA + "[MGA]" + ChatColor.WHITE + string1 +"'s Hunger is " + hunger);
 						 return true;
 					 
 					 }
