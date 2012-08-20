@@ -77,7 +77,7 @@ public class MGACommandExecutor implements CommandExecutor {
 					 }
 					 //If the sender is not instanceof player send message with console use back to the sender
 					 else {
-						 sender.sendMessage(ChatColor.RED+"Please use /heal <player> on console!");
+						 sender.sendMessage(ChatColor.RED+"Please use /feed <player> on console!");
 						 sucess = true;
 					 } 
 				 }
@@ -210,4 +210,11 @@ public class MGACommandExecutor implements CommandExecutor {
 			 sucess = false;
 		 }
 		 return sucess;
+			 }
+			 }
+		 }
+		 return false;
+	}
+}
+
 
