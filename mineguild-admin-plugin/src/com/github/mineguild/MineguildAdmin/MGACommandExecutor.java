@@ -217,6 +217,7 @@ public class MGACommandExecutor implements CommandExecutor {
 					 Player p = (Player) sender;
 					 Location l = p.getWorld().getSpawnLocation();
 					 p.teleport(l);
+					 sender.sendMessage("Test " + l);
 					 return true;
 				 }
 				 else{
