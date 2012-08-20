@@ -31,3 +31,8 @@ commands:
         usage: /feed [player]
         permission: mga.feed
         permission-message: You dont have permissions to do this.
+    spawn:
+        description: Teleport to spawn
+        usage: /spawn
+        permission: mga.spawn
+        permission-message: You dont have permissions to do this.

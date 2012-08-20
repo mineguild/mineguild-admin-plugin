@@ -3,6 +3,7 @@ package com.github.mineguild.MineguildAdmin;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -211,15 +212,21 @@ public class MGACommandExecutor implements CommandExecutor {
 				 }
 			 }
 		 if(cmd.getName().equalsIgnoreCase("spawn")){
-			 if(sender instanceof Player){
-				 Player p = (Player) sender;
-				 p.teleport(p.getWorld().getSpawnLocation());
-				 return true;
+			 if(args.length == 0){
+				 if(sender instanceof Player){
+					 Player p = (Player) sender;
+					 Location l = p.getWorld().getSpawnLocation();
+					 p.teleport(l);
+					 return true;
+				 }
+				 else{
+					 sender.sendMessage(ChatColor.RED + "You cant use this command from console yet!");
+					 return true;
+				 }
 			 }
-		 }
-		 else{
-			 sender.sendMessage(ChatColor.RED + "You cant use this command from console yet!");
-			 return true;
+			 else{
+				 return false;
+			 }
 		 }
 	return false;
 	}
