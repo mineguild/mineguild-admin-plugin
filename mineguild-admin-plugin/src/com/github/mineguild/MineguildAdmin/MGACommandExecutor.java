@@ -199,7 +199,7 @@ public class MGACommandExecutor implements CommandExecutor {
 					 }
 				 
 				 }
-				 //PENIS PENIS If output of Bukkit.getPlayerExact(args[0] was null, send error message.
+				 //If output of Bukkit.getPlayerExact(args[0] was null, send error message.
 				 else {
 					 sender.sendMessage(ChatColor.RED+"Player is not online!");
 					 sucess = true;
