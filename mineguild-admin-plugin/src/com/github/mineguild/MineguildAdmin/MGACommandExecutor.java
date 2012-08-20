@@ -17,7 +17,10 @@ public class MGACommandExecutor implements CommandExecutor {
 	@Override
 	//Command interpreter
 		public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
-		String pre = ChatColor.AQUA + "[MGA]" + ChatColor.WHITE;
+		String pre = ChatColor.AQUA + "[MGA] " + ChatColor.WHITE;
+		String white = " " + ChatColor.WHITE;
+		String yellow = " " + ChatColor.YELLOW;
+		String Aqua = " " + ChatColor.WHITE;
 		//Introducing /heal command
 		 if(cmd.getName().equalsIgnoreCase("heal")){
 			 //If there are no args, simply act with the command sender
@@ -27,12 +30,12 @@ public class MGACommandExecutor implements CommandExecutor {
 				 Player p = (Player) sender;
 				 //set max Health and message
 					 p.setHealth(20);
-					 p.sendMessage(ChatColor.RED+"You feel restored");
+					 p.sendMessage(pre + "You feel restored");
 					 return true;
 				 }
 				 //If the sender is not instanceof player send message with console use back to the sender
 				 else {
-					 sender.sendMessage(ChatColor.RED+"Please use /heal <player> on console!");
+					 sender.sendMessage(pre + "Please use" + yellow + "/heal <player>" + white + "on console!");
 					 return true;
 				 } 
 			 }
@@ -44,13 +47,13 @@ public class MGACommandExecutor implements CommandExecutor {
 				 //set max Health and message
 				 String pname = p.getName();
 				 p.setHealth(20);
-				 p.sendMessage(ChatColor.RED+"You feel restored");
-				 sender.sendMessage(ChatColor.RED+"You just healed " + pname);
+				 p.sendMessage(pre + "You feel restored");
+				 sender.sendMessage(pre + "You just healed " + yellow + pname);
 				 return true;
 			 }
 			 //If output of Bukkit.getPlayerExact(args[0] was null, send error message.
 			 else {
-				 sender.sendMessage(ChatColor.RED+"Player is not online!");
+				 sender.sendMessage(pre + "Player is not online!");
 				 return true;
 			 }
 			 }
@@ -64,12 +67,12 @@ public class MGACommandExecutor implements CommandExecutor {
 					 Player p = (Player) sender;
 					 //set max hunger level and message
 						 p.setFoodLevel(20);
-						 p.sendMessage(ChatColor.RED+"You feeded yourself");
+						 p.sendMessage(pre + "You feeded yourself");
 						 return true;
 					 }
 					 //If the sender is not instanceof player send message with console use back to the sender
 					 else {
-						 sender.sendMessage(ChatColor.RED+"Please use /feed <player> on console!");
+						 sender.sendMessage(pre +"Please use" + yellow + "/feed <player>" + white + "on console!");
 						 return true;
 					 } 
 				 }
@@ -82,14 +85,14 @@ public class MGACommandExecutor implements CommandExecutor {
 					 //set max hunger level and message both
 					 String pname = p.getName();
 					 p.setFoodLevel(20);
-					 p.sendMessage(ChatColor.RED+"You were feeded.");
-					 sender.sendMessage(ChatColor.RED+"You just feeded " + pname);
+					 p.sendMessage(pre + "You were feeded.");
+					 sender.sendMessage(pre + "You just feeded " + pname);
 					 return true;
 				 
 				 }
 				 //If output of Bukkit.getPlayerExact(args[0] was null, send error message.
 					 else {
-						 sender.sendMessage(ChatColor.RED+"Player is not online!");
+						 sender.sendMessage(pre + "Player is not " + ChatColor.GREEN + "online" + ChatColor.WHITE + "!");
 						 return true;
 					 }
 				 }
@@ -106,13 +109,13 @@ public class MGACommandExecutor implements CommandExecutor {
 						 health = health / 2.0;
 						 double hunger = p.getFoodLevel();
 						 hunger = hunger / 2.0;
-						 p.sendMessage(ChatColor.RED+"Your Health is " + health);
-						 p.sendMessage(ChatColor.RED+"Your Hunger is " + hunger);
+						 p.sendMessage(pre + "Your Health is" + yellow + health);
+						 p.sendMessage(pre + "Your Hunger is" + yellow + hunger);
 						 return true;
 						 }
 					 //If the sender is not instanceof player send message with console use back to the sender
 					 else {
-						 sender.sendMessage(ChatColor.RED+"Please use /check <player> on console!");
+						 sender.sendMessage(pre  + "Please use" + yellow + "/check <player>" + white + "on console!");
 						 return true;
 					 }
 				 }
@@ -127,14 +130,14 @@ public class MGACommandExecutor implements CommandExecutor {
 						 double hunger = p.getFoodLevel();
 						 hunger = hunger / 2.0;
 						 health = health / 2.0;
-						 sender.sendMessage(pre + ChatColor.WHITE + string1 +"'s Health is " + health);
-						 sender.sendMessage(ChatColor.AQUA + "[MGA]" + ChatColor.WHITE + string1 +"'s Hunger is " + hunger);
+						 sender.sendMessage(pre + ChatColor.YELLOW + string1 +"'s" + white + "Health is " + yellow + health);
+						 sender.sendMessage(pre + ChatColor.YELLOW + string1 +"'s" + white + "Hunger is " + yellow + hunger);
 						 return true;
 					 
 					 }
 					 //If output of Bukkit.getPlayerExact(args[0] was null, send error message.
 					 else {
-						 sender.sendMessage(ChatColor.RED+"Player is not online!");
+						 sender.sendMessage(pre + ChatColor.RED+"Player is not online!");
 						 return true;
 					 }
 				 }
@@ -150,18 +153,18 @@ public class MGACommandExecutor implements CommandExecutor {
 				 //Also returning true, for the correctness
 					 if (p.getGameMode().equals(GameMode.SURVIVAL)){
 						 p.setGameMode(GameMode.CREATIVE);
-						 p.sendMessage(ChatColor.GOLD + "You are now in creative mode!");
+						 p.sendMessage(pre + ChatColor.GOLD + "You are now in creative mode!");
 						 return true;
 					 }
 					 else if (p.getGameMode().equals(GameMode.CREATIVE)){
 						 p.setGameMode(GameMode.SURVIVAL);
-						 p.sendMessage(ChatColor.GOLD + "You are now in survival mode!");
+						 p.sendMessage(pre + ChatColor.GOLD + "You are now in survival mode!");
 						 return true;
 					 }
 				 }
 				 //If the sender is not instanceof player send message with console use back to the sender
 				 else {
-					 sender.sendMessage(ChatColor.RED+"Please use /gm <player> <gamemode> on console!");
+					 sender.sendMessage(pre + ChatColor.RED + "Please use /gm <player> <gamemode> on console!");
 					 return true;
 				 }
 			 }
@@ -175,17 +178,17 @@ public class MGACommandExecutor implements CommandExecutor {
 			    			 
 				    		 if (args[0].equalsIgnoreCase("c") || args[0].equals(1)){
 								 p.setGameMode(GameMode.CREATIVE);
-								 sender.sendMessage(ChatColor.GOLD + "You are now in creative mode!");
+								 sender.sendMessage(pre + ChatColor.GOLD + "You are now in creative mode!");
 								 return true;
 							 }
 							 if(args[0].equalsIgnoreCase("s") || args[0].equals(0)){
 								 p.setGameMode(GameMode.SURVIVAL);
-								 sender.sendMessage(ChatColor.GOLD + "You are now in survival mode!");
+								 sender.sendMessage(pre + ChatColor.GOLD + "You are now in survival mode!");
 								 return true;
 							 }
 			    		 }
 			    		 else{
-			    			 sender.sendMessage(ChatColor.RED+"Please use /gm <player> <gamemode> on console!");
+			    			 sender.sendMessage(pre + ChatColor.RED+"Please use /gm <player> <gamemode> on console!");
 							 return true;
 			    		 }
 		    	 }
@@ -200,24 +203,24 @@ public class MGACommandExecutor implements CommandExecutor {
 							 if (p.getGameMode().equals(GameMode.SURVIVAL)){
 								 p.setGameMode(GameMode.CREATIVE);
 								 sender.sendMessage(ChatColor.GOLD + pname + " is now in creative mode!");
-								 p.sendMessage(ChatColor.GOLD + "You are now in creative mode!");
+								 p.sendMessage(pre + ChatColor.GOLD + "You are now in creative mode!");
 								 return true;
 							 }
 							 if (p.getGameMode().equals(GameMode.CREATIVE)){
 								 p.setGameMode(GameMode.SURVIVAL);
-								 sender.sendMessage(ChatColor.GOLD + pname + " is now in survival mode!");
-								 p.sendMessage(ChatColor.GOLD + "You are now in survival mode!");
+								 sender.sendMessage(pre + yellow + pname + ChatColor.GOLD + "is now in survival mode!");
+								 p.sendMessage(pre + ChatColor.GOLD + "You are now in survival mode!");
 								 return true;
 							 }
 						 }
 					 //If output of Bukkit.getPlayerExact(args[0] was null, send error message.
 						 else{
-							 sender.sendMessage(ChatColor.RED+"Player is not online!");
+							 sender.sendMessage(pre + ChatColor.RED + "Player is not online!");
 							 return true;
 						 }
 		    		 }
 		    		 else{
-		    			 sender.sendMessage(ChatColor.RED+"Please use /gm <player> <gamemode> on console!");
+		    			 sender.sendMessage(pre + "Please use" + yellow + "/gm <player> <gamemode>" + white + "on console!");
 						 return true; 
 		    		 }
 		    	 }
@@ -229,22 +232,22 @@ public class MGACommandExecutor implements CommandExecutor {
 			    	 if(p != null){
 						 if (args[1].equalsIgnoreCase("c") || args[1].equals("1")){
 							 p.setGameMode(GameMode.CREATIVE);
-							 sender.sendMessage(ChatColor.GOLD + pname + " is now in creative mode!");
+							 sender.sendMessage(pre + yellow + pname + ChatColor.GOLD + " is now in creative mode!");
 							 return true;
 						 }
 						 if(args[1].equalsIgnoreCase("s") || args[1].equals("0")){
 							 p.setGameMode(GameMode.SURVIVAL);
-							 sender.sendMessage(ChatColor.GOLD + pname + " is now in survival mode!");
+							 sender.sendMessage(pre + yellow + pname + ChatColor.GOLD + " is now in survival mode!");
 							 return true;
 						 }
 			    	 }
 			    	 else{
-						 sender.sendMessage(ChatColor.RED+"Player is not online!");
+						 sender.sendMessage(pre + ChatColor.RED+"Player is not online!");
 						 return true;
 					 }
 		    	 }
 		    	 else{
-		    		 sender.sendMessage(ChatColor.RED+"Please use /gm <player> <gamemode> on console!");
+		    		 sender.sendMessage(pre + "Please use" + yellow + "/gm <player> <gamemode>" + white + "on console!");
 					 return true;
 		    	 }
 		     }
@@ -255,11 +258,11 @@ public class MGACommandExecutor implements CommandExecutor {
 					 Player p = (Player) sender;
 					 Location l = p.getWorld().getSpawnLocation();
 					 p.teleport(l);
-					 sender.sendMessage(ChatColor.GREEN + "You were teleported to the spawn!");
+					 sender.sendMessage(pre + "You were teleported to the spawn!");
 					 return true;
 				 }
 				 else{
-					 sender.sendMessage(ChatColor.RED + "You cant use this command from console yet!");
+					 sender.sendMessage(pre + ChatColor.RED + "You cant use this command from console!");
 					 return true;
 				 }
 			 }
@@ -274,11 +277,11 @@ public class MGACommandExecutor implements CommandExecutor {
 				 int y = p.getLocation().getBlockY();
 				 int z = p.getLocation().getBlockZ();
 				 p.getWorld().setSpawnLocation(x, y, z);
-				 sender.sendMessage(ChatColor.GREEN + "The spawn point was set to you location");
+				 sender.sendMessage(pre + "The spawn point was set to you location");
 				 return true;
 			 }
 			 else{
-				 sender.sendMessage(ChatColor.RED + "You only can use this command as player!");
+				 sender.sendMessage(pre + ChatColor.RED + "You only can use this command as player!");
 				 return true;
 			 }
 		 }
