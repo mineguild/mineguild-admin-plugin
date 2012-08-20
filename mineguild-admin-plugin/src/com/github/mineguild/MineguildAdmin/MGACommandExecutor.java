@@ -100,17 +100,26 @@ public class MGACommandExecutor implements CommandExecutor {
 //Introducing /check command
 			 if(cmd.getName().equalsIgnoreCase("check")){
 				 //If there are no args, simply act with the command sender
-				 if(args.length == 0){
+						 if(args.length == 0){
 					 //Only do this if the sender is instanceof player
 					 if(sender instanceof Player){
 					 Player p = (Player) sender;
 					 //check health then /2 and print
+					     String gm = "Error";
+						 if (p.getGameMode().equals(GameMode.SURVIVAL)){
+							 gm = "survival";
+						 }
+						 else {
+							 gm = "creative";
+						 }
 						 double health = p.getHealth();
 						 health = health / 2.0;
 						 double hunger = p.getFoodLevel();
 						 hunger = hunger / 2.0;
+
 						 p.sendMessage(pre + "Your Health is" + yellow + health);
 						 p.sendMessage(pre + "Your Hunger is" + yellow + hunger);
+						 p.sendMessage(pre + "Your currently in" + gm + "Gamemode");
 						 return true;
 						 }
 					 //If the sender is not instanceof player send message with console use back to the sender
