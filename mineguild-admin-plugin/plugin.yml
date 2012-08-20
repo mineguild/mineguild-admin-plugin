@@ -36,3 +36,8 @@ commands:
         usage: /spawn
         permission: mga.spawn
         permission-message: You dont have permissions to do this.
+    setspawn:
+        description: Sets the spawn-location
+        usage: /setspawn
+        permission: mga.setspawn
+        permission-message: You dont have permissions to do this.

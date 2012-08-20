@@ -217,7 +217,7 @@ public class MGACommandExecutor implements CommandExecutor {
 					 Player p = (Player) sender;
 					 Location l = p.getWorld().getSpawnLocation();
 					 p.teleport(l);
-					 sender.sendMessage("Test " + l);
+					 sender.sendMessage(ChatColor.GREEN + "You were teleported to the spawn!");
 					 return true;
 				 }
 				 else{
@@ -227,6 +227,21 @@ public class MGACommandExecutor implements CommandExecutor {
 			 }
 			 else{
 				 return false;
+			 }
+		 }
+		 if(cmd.getName().equalsIgnoreCase("setspawn")){
+			 if(sender instanceof Player){
+				 Player p = (Player) sender;
+				 int x = p.getLocation().getBlockX();
+				 int y = p.getLocation().getBlockY();
+				 int z = p.getLocation().getBlockZ();
+				 p.getWorld().setSpawnLocation(x, y, z);
+				 sender.sendMessage(ChatColor.GREEN + "The spawn point was set to you location");
+				 return true;
+			 }
+			 else{
+				 sender.sendMessage(ChatColor.RED + "You only can use this command as player!");
+				 return true;
 			 }
 		 }
 	return false;

@@ -24,6 +24,7 @@ public void onEnable(){
 	getCommand("check").setExecutor(CMDEXE);
 	getCommand("feed").setExecutor(CMDEXE);
 	getCommand("spawn").setExecutor(CMDEXE);
+	getCommand("setspawn").setExecutor(CMDEXE);
 	
 	//Send message to console
 	getLogger().info("MineguildAdmin V" + pdffile.getVersion() + " has been enabled!");
