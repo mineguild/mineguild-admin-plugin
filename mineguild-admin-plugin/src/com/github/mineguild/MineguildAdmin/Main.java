@@ -37,7 +37,7 @@ public void onDisable(){
 	PluginDescriptionFile pdffile = this.getDescription();
 	getLogger().info("MineguildAdmin V" + pdffile.getVersion() + " has been disabled!");
 }
-PluginDescriptionFile pdffile = this.getDescription();
+
 
 
 public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
@@ -47,9 +47,11 @@ public boolean onCommand(CommandSender sender, Command cmd, String label, String
 			return false;
 		}
 		if (args[0].equalsIgnoreCase("version")) {
-		//Show version to sender and return true if the value of args[0] is equal to "version"
-		sender.sendMessage(ChatColor.AQUA + "[MGA]" + ChatColor.WHITE + "MineguildAdmin" + ChatColor.BLUE + "V" + pdffile.getVersion());
-		return true;
+			PluginDescriptionFile pdffile = this.getDescription();
+			String v = pdffile.getVersion();
+			//Show version to sender and return true if the value of args[0] is equal to "version"
+			sender.sendMessage(ChatColor.AQUA + "[MGA]" + ChatColor.WHITE + "MineguildAdmin" + ChatColor.BLUE + "V" + v);
+			return true;
 		}
 		return false;
 	}
