@@ -199,11 +199,11 @@ public class MGACommandExecutor implements CommandExecutor {
 			    		 }
 		    	 }
 		    	 else{
-		    		 if(sender instanceof Player){						 
-		    		     Player p = Bukkit.getPlayerExact(args[0]);
-						 String pname = p.getDisplayName();
+		    		 if(sender instanceof Player){
 						 //If the above defined player isn´t null continue
+						 Player p = Bukkit.getPlayerExact(args[0]);
 						 if(p != null){
+							 String pname = p.getDisplayName();
 							 //If the gamemode is survival it will switch to creative and vice versa
 							 //Also returning true, for the correctness
 							 if (p.getGameMode().equals(GameMode.SURVIVAL)){
