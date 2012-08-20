@@ -153,7 +153,7 @@ public class MGACommandExecutor implements CommandExecutor {
 						 }
 						 sender.sendMessage(pre + yellow + string1 +"'s" + white + "Health is " + yellow + health + white + "(" + ChatColor.YELLOW + prohealth + "%" + ChatColor.WHITE + ")");
 						 sender.sendMessage(pre + yellow + string1 +"'s" + white + "Hunger is " + yellow + hunger + white + "(" + ChatColor.YELLOW + prohunger + "%" + ChatColor.WHITE + ")");
-						 p.sendMessage(pre + ChatColor.YELLOW + string1 +"'s" + white +"Gamemode is"+ yellow + gm);
+						 sender.sendMessage(pre + ChatColor.YELLOW + string1 +"'s" + white +"Gamemode is"+ yellow + gm);
 						 return true;
 					 
 					 }
