@@ -13,6 +13,7 @@ import org.bukkit.entity.Player;
 public class MGACommandExecutor implements CommandExecutor {
 	public MGACommandExecutor(Main plugin) {
 	}
+	@SuppressWarnings({ "unused"})
 	@Override
 	//Command interpreter
 		public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
@@ -190,25 +191,26 @@ public class MGACommandExecutor implements CommandExecutor {
 		    	 }
 		    	 else{
 					 Player p = Bukkit.getPlayerExact(args[0]);
+					 String pname = p.getDisplayName();
 					 //If the above defined player isn´t null continue
 					 if(p != null){
 						 //If the gamemode is survival it will switch to creative and vice versa
 						 //Also returning true, for the correctness
 						 if (p.getGameMode().equals(GameMode.SURVIVAL)){
 							 p.setGameMode(GameMode.CREATIVE);
-							 sender.sendMessage(ChatColor.GOLD + "Target is now in creative mode!");
+							 sender.sendMessage(ChatColor.GOLD + pname + " is now in creative mode!");
 							 p.sendMessage(ChatColor.GOLD + "You are now in creative mode!");
 							 return true;
 						 }
 						 if (p.getGameMode().equals(GameMode.CREATIVE)){
 							 p.setGameMode(GameMode.SURVIVAL);
-							 sender.sendMessage(ChatColor.GOLD + "Target is now in survival mode!");
+							 sender.sendMessage(ChatColor.GOLD + pname + " is now in survival mode!");
 							 p.sendMessage(ChatColor.GOLD + "You are now in survival mode!");
 							 return true;
 						 }
 					 }
 					 //If output of Bukkit.getPlayerExact(args[0] was null, send error message.
-					 else {
+					 else{
 						 sender.sendMessage(ChatColor.RED+"Player is not online!");
 						 return true;
 					 }
@@ -216,15 +218,16 @@ public class MGACommandExecutor implements CommandExecutor {
 			 }
 		     else if (args.length == 2) {
 		    	 Player p = Bukkit.getPlayerExact(args[0]);
+		    	 String pname = p.getDisplayName();
 		    	 if(p != null){
 					 if (args[1].equalsIgnoreCase("c") || args[1].equals("1")){
 						 p.setGameMode(GameMode.CREATIVE);
-						 sender.sendMessage(ChatColor.GOLD + "Target is now in creative mode!");
+						 sender.sendMessage(ChatColor.GOLD + pname + " is now in creative mode!");
 						 return true;
 					 }
 					 if(args[1].equalsIgnoreCase("s") || args[1].equals("0")){
 						 p.setGameMode(GameMode.SURVIVAL);
-						 sender.sendMessage(ChatColor.GOLD + "Target is now in survival mode!");
+						 sender.sendMessage(ChatColor.GOLD + pname + " is now in survival mode!");
 						 return true;
 					 }
 		    	 }
