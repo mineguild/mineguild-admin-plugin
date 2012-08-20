@@ -119,7 +119,7 @@ public class MGACommandExecutor implements CommandExecutor {
 
 						 p.sendMessage(pre + "Your Health is" + yellow + health);
 						 p.sendMessage(pre + "Your Hunger is" + yellow + hunger);
-						 p.sendMessage(pre + "Your currently in" + gm + "Gamemode");
+						 p.sendMessage(pre + "Your currently in" + yellow + gm + white +"Gamemode");
 						 return true;
 						 }
 					 //If the sender is not instanceof player send message with console use back to the sender
@@ -135,12 +135,25 @@ public class MGACommandExecutor implements CommandExecutor {
 					 if(p != null){
 						 //set max Health and message
 						 double health = p.getHealth();
+						 double prohunger;
+						 double prohealth;
 						 String string1 = p.getName();
 						 double hunger = p.getFoodLevel();
+						 prohunger = (hunger * 5);
+						 prohealth = (health * 5);
 						 hunger = hunger / 2.0;
 						 health = health / 2.0;
-						 sender.sendMessage(pre + ChatColor.YELLOW + string1 +"'s" + white + "Health is " + yellow + health);
-						 sender.sendMessage(pre + ChatColor.YELLOW + string1 +"'s" + white + "Hunger is " + yellow + hunger);
+
+					     String gm = "Error";
+						 if (p.getGameMode().equals(GameMode.SURVIVAL)){
+							 gm = "survival";
+						 }
+						 else {
+							 gm = "creative";
+						 }
+						 sender.sendMessage(pre + yellow + string1 +"'s" + white + "Health is " + yellow + health + white + "(" + ChatColor.YELLOW + prohealth + "%" + ChatColor.WHITE + ")");
+						 sender.sendMessage(pre + yellow + string1 +"'s" + white + "Hunger is " + yellow + hunger + white + "(" + ChatColor.YELLOW + prohunger + "%" + ChatColor.WHITE + ")");
+						 p.sendMessage(pre + ChatColor.YELLOW + string1 +"'s" + white +"Gamemode is"+ yellow + gm);
 						 return true;
 					 
 					 }
