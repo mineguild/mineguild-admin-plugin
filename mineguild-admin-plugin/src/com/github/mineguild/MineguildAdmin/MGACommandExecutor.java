@@ -213,6 +213,7 @@ public class MGACommandExecutor implements CommandExecutor {
 			 }
 			 }
 		 }
+		 return false;
 	}
 }
 
