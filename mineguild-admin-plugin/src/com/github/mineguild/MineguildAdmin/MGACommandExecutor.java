@@ -170,7 +170,7 @@ public class MGACommandExecutor implements CommandExecutor {
 				 }
 				 //If the sender is not instanceof player send message with console use back to the sender
 				 else {
-					 sender.sendMessage(ChatColor.RED+"Please use /gm <player> on console!");
+					 sender.sendMessage(ChatColor.RED+"Please use /gm <player> <gamemode> on console!");
 					 return true;
 				 }
 			 }
@@ -178,16 +178,22 @@ public class MGACommandExecutor implements CommandExecutor {
 		      if(args.length == 1) {
 		    	 if(args[0].equalsIgnoreCase("s") || args[0].equalsIgnoreCase("c") || args[0].equals("1") || args[0].equals("0")){
 		    		 Player p = (Player) sender;
-		    		 if (args[0].equalsIgnoreCase("c") || args[0].equals(1)){
-						 p.setGameMode(GameMode.CREATIVE);
-						 sender.sendMessage(ChatColor.GOLD + "You are now in creative mode!");
-						 return true;
-					 }
-					 if(args[0].equalsIgnoreCase("s") || args[0].equals(0)){
-						 p.setGameMode(GameMode.SURVIVAL);
-						 sender.sendMessage(ChatColor.GOLD + "You are now in survival mode!");
-						 return true;
-					 }
+			    		 if(sender instanceof Player){
+				    		 if (args[0].equalsIgnoreCase("c") || args[0].equals(1)){
+								 p.setGameMode(GameMode.CREATIVE);
+								 sender.sendMessage(ChatColor.GOLD + "You are now in creative mode!");
+								 return true;
+							 }
+							 if(args[0].equalsIgnoreCase("s") || args[0].equals(0)){
+								 p.setGameMode(GameMode.SURVIVAL);
+								 sender.sendMessage(ChatColor.GOLD + "You are now in survival mode!");
+								 return true;
+							 }
+			    		 }
+			    		 else{
+			    			 sender.sendMessage(ChatColor.RED+"Please use /gm <player> <gamemode> on console!");
+							 return true;
+			    		 }
 		    	 }
 		    	 else{
 					 Player p = Bukkit.getPlayerExact(args[0]);
