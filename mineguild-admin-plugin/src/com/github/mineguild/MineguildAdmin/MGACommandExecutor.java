@@ -25,7 +25,7 @@ public class MGACommandExecutor implements CommandExecutor {
 				}
 				if (args[0].equalsIgnoreCase("version")) {
 				//Show version to sender and return true if the value of args[0] is equal to "version"
-				sender.sendMessage("MineguildAdmin V0.3");
+				sender.sendMessage(ChatColor.AQUA + "[Mga]" + ChatColor.WHITE + "MineguildAdmin" + ChatColor.BLUE + "V");
 				return true;
 				}
 		}
