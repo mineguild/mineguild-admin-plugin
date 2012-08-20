@@ -15,17 +15,16 @@ public class MGACommandExecutor implements CommandExecutor {
 	@Override
 	//Command interpreter
 		public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
-        boolean success = false;
 //Introducing /mga command
 		if(cmd.getName().equalsIgnoreCase("mga")){
 				//If the args are length 0 or the args[0] isnt equal "version" it will return false
 				if (args.length == 0 || !args[0].equalsIgnoreCase("version")){
-					success = false;
+					return false;
 				}
 				if (args[0].equalsIgnoreCase("version")) {
 				//Show version to sender and return true if the value of args[0] is equal to "version"
 				sender.sendMessage("MineguildAdmin V0.3");
-				success = true;
+				return true;
 				}
 		}
 //Introducing /heal command
@@ -42,7 +41,7 @@ public class MGACommandExecutor implements CommandExecutor {
 				 //If the sender is not instanceof player send message with console use back to the sender
 				 else {
 					 sender.sendMessage(ChatColor.RED+"Please use /heal <player> on console!");
-					 success = true;
+					 return true;
 				 } 
 			 }
 		 
@@ -159,17 +158,17 @@ public class MGACommandExecutor implements CommandExecutor {
 				 //Also returning true, for the correctness
 					 if (p.getGameMode().equals(GameMode.SURVIVAL)){
 						 p.setGameMode(GameMode.CREATIVE);
-						 success = true;
+						 return true;
 					 }
 					 else if (p.getGameMode().equals(GameMode.CREATIVE)){
 						 p.setGameMode(GameMode.SURVIVAL);
-						 success = true;
+						 return true;
 					 }
 				 }
 				 //If the sender is not instanceof player send message with console use back to the sender
 				 else {
 					 sender.sendMessage(ChatColor.RED+"Please use /gm <player> on console!");
-					 success = true;
+					 return true;
 				 }
 			 }
 		 }
@@ -185,23 +184,23 @@ public class MGACommandExecutor implements CommandExecutor {
 						 p.setGameMode(GameMode.CREATIVE);
 						 sender.sendMessage(ChatColor.GOLD + "Target is now in creative mode!");
 						 p.sendMessage(ChatColor.GOLD + "You are now in creative mode!");
-						 success = true;
+						 return true;
 					 }
 					 else if (p.getGameMode().equals(GameMode.CREATIVE)){
 						 p.setGameMode(GameMode.SURVIVAL);
 						 sender.sendMessage(ChatColor.GOLD + "Target is now in survival mode!");
 						 p.sendMessage(ChatColor.GOLD + "You are now in survival mode!");
-						 success = true;
+						 return true;
 					 }
 					 else if (args[1].equalsIgnoreCase("c")){
 						 p.setGameMode(GameMode.CREATIVE);
 						 sender.sendMessage(ChatColor.GOLD + "Target is now in creative mode!");
-						 success = true;
+						 return true;
 					 }
 					 else if(args[1].equalsIgnoreCase("s")){
 						 p.setGameMode(GameMode.SURVIVAL);
 						 sender.sendMessage(ChatColor.GOLD + "Target is now in survival mode!");
-						 success = true;
+						 return true;
 					 }
 				 
 				 }
@@ -220,7 +219,7 @@ public class MGACommandExecutor implements CommandExecutor {
 		 }
 		 else{
 			 sender.sendMessage(ChatColor.RED + "You cant use this command from console yet!");
-			 success = true;
+			 return true;
 		 }
 	return false;
 	}
