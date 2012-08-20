@@ -202,13 +202,13 @@ public class MGACommandExecutor implements CommandExecutor {
 							 //Also returning true, for the correctness
 							 if (p.getGameMode().equals(GameMode.SURVIVAL)){
 								 p.setGameMode(GameMode.CREATIVE);
-								 sender.sendMessage(ChatColor.GOLD + pname + " is now in creative mode!");
+								 sender.sendMessage(pre + yellow + pname + ChatColor.GOLD + " is now in creative mode!");
 								 p.sendMessage(pre + ChatColor.GOLD + "You are now in creative mode!");
 								 return true;
 							 }
 							 if (p.getGameMode().equals(GameMode.CREATIVE)){
 								 p.setGameMode(GameMode.SURVIVAL);
-								 sender.sendMessage(pre + yellow + pname + ChatColor.GOLD + "is now in survival mode!");
+								 sender.sendMessage(pre + yellow + pname + ChatColor.GOLD + " is now in survival mode!");
 								 p.sendMessage(pre + ChatColor.GOLD + "You are now in survival mode!");
 								 return true;
 							 }
@@ -252,6 +252,7 @@ public class MGACommandExecutor implements CommandExecutor {
 		    	 }
 		     }
 		 }
+//Introducing /spawn
 		 if(cmd.getName().equalsIgnoreCase("spawn")){
 			 if(args.length == 0){
 				 if(sender instanceof Player){
@@ -270,6 +271,7 @@ public class MGACommandExecutor implements CommandExecutor {
 				 return false;
 			 }
 		 }
+//Introducing /setspawn
 		 if(cmd.getName().equalsIgnoreCase("setspawn")){
 			 if(sender instanceof Player){
 				 Player p = (Player) sender;
