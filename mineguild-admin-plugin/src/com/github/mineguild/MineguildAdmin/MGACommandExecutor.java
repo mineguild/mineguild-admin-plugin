@@ -56,13 +56,14 @@ public class MGACommandExecutor implements CommandExecutor {
 				 p.setHealth(20);
 				 p.sendMessage(ChatColor.RED+"You feel restored");
 				 sender.sendMessage(ChatColor.RED+"You just healed" + string3);
-			 
+				 return true;
 			 }
 			 //If output of Bukkit.getPlayerExact(args[0] was null, send error message.
 			 else {
 				 sender.sendMessage(ChatColor.RED+"Player is not online!");
-				 success = true;
+				 return true;
 			 }
+		 }
 		 }
 //Introducing /feed command
 			 if(cmd.getName().equalsIgnoreCase("feed")){
@@ -78,7 +79,7 @@ public class MGACommandExecutor implements CommandExecutor {
 					 //If the sender is not instanceof player send message with console use back to the sender
 					 else {
 						 sender.sendMessage(ChatColor.RED+"Please use /feed <player> on console!");
-						 success = true;
+						 return true;
 					 } 
 				 }
 			 
@@ -92,12 +93,14 @@ public class MGACommandExecutor implements CommandExecutor {
 					 p.setFoodLevel(20);
 					 p.sendMessage(ChatColor.RED+"You were feeded");
 					 sender.sendMessage(ChatColor.RED+"You just feeded" + string2);
+					 return true;
 				 
 				 }
 				 //If output of Bukkit.getPlayerExact(args[0] was null, send error message.
-				 else {
-					 sender.sendMessage(ChatColor.RED+"Player is not online!");
-					 success = true;
+					 else {
+						 sender.sendMessage(ChatColor.RED+"Player is not online!");
+						 return true;
+					 }
 				 }
 			 }
 //Introducing /check command
@@ -114,16 +117,17 @@ public class MGACommandExecutor implements CommandExecutor {
 						 hunger = hunger / 2.0;
 						 p.sendMessage(ChatColor.RED+"Your Health is" + health);
 						 p.sendMessage(ChatColor.RED+"Your Hunger is" + hunger);
-					 }
+						 return true;
+						 }
 					 //If the sender is not instanceof player send message with console use back to the sender
 					 else {
 						 sender.sendMessage(ChatColor.RED+"Please use /heal <player> on console!");
-						 success = true;
+						 return true;
 					 } 
 				 }
-			 
-		     //If the args have the length 1 continue PENIS
-				 else {
+			 }
+		     //If the args have the length 1 continue
+				 else if(args.length == 1) {
 				 Player p = Bukkit.getPlayerExact(args[0]);
 				 //If the above defined player isn´t null continue
 				 if(p != null){
@@ -135,12 +139,13 @@ public class MGACommandExecutor implements CommandExecutor {
 					 health = health / 2.0;
 					 sender.sendMessage(ChatColor.RED + string1 +"'s Health is" + health);
 					 sender.sendMessage(ChatColor.RED + string1 +"'s Hunger is" + hunger);
+					 return true;
 				 
 				 }
 				 //If output of Bukkit.getPlayerExact(args[0] was null, send error message.
 				 else {
 					 sender.sendMessage(ChatColor.RED+"Player is not online!");
-					 success = true;
+					 return true;
 				 }
 			 }
 //Introducing /gm command
@@ -165,11 +170,12 @@ public class MGACommandExecutor implements CommandExecutor {
 				 else {
 					 sender.sendMessage(ChatColor.RED+"Please use /gm <player> on console!");
 					 success = true;
-				 } 
+				 }
 			 }
+		 }
 
 		     //If the args have the length 1 continue
-			 if(args.length == 1) {
+		 else if(args.length == 1) {
 				 Player p = Bukkit.getPlayerExact(args[0]);
 				 //If the above defined player isn´t null continue
 				 if(p != null){
@@ -202,29 +208,21 @@ public class MGACommandExecutor implements CommandExecutor {
 				 //If output of Bukkit.getPlayerExact(args[0] was null, send error message.
 				 else {
 					 sender.sendMessage(ChatColor.RED+"Player is not online!");
-					 success = true;
+					 return true;
 				 }
 			 }
-		 }
-		 else {
-			 success = false;
-		 }
 		 if(cmd.getName().equalsIgnoreCase("spawn")){
 			 if(sender instanceof Player){
 				 Player p = (Player) sender;
 				 p.teleport(p.getWorld().getSpawnLocation());
-				 return success;
-			 }
-			 else{
-				 sender.sendMessage(ChatColor.RED + "You cant use this command from console yet!");
-				 return success;
+				 return true;
 			 }
 		 }
-		 return success;
-			 }
-			 }
+		 else{
+			 sender.sendMessage(ChatColor.RED + "You cant use this command from console yet!");
+			 success = true;
 		 }
-		 return false;
+	return false;
 	}
 }
 
