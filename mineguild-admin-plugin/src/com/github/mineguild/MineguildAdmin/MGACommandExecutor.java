@@ -17,18 +17,6 @@ public class MGACommandExecutor implements CommandExecutor {
 	@Override
 	//Command interpreter
 		public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
-//Introducing /mga command
-		if(cmd.getName().equalsIgnoreCase("mga")){
-				//If the args are length 0 or the args[0] isnt equal "version" it will return false
-				if (args.length == 0 || !args[0].equalsIgnoreCase("version")){
-					return false;
-				}
-				if (args[0].equalsIgnoreCase("version")) {
-				//Show version to sender and return true if the value of args[0] is equal to "version"
-				sender.sendMessage(ChatColor.AQUA + "[Mga]" + ChatColor.WHITE + "MineguildAdmin" + ChatColor.BLUE + "V");
-				return true;
-				}
-		}
 //Introducing /heal command
 		 if(cmd.getName().equalsIgnoreCase("heal")){
 			 //If there are no args, simply act with the command sender
