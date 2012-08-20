@@ -48,9 +48,10 @@ public boolean onCommand(CommandSender sender, Command cmd, String label, String
 		}
 		if (args[0].equalsIgnoreCase("version")) {
 		//Show version to sender and return true if the value of args[0] is equal to "version"
-		sender.sendMessage(ChatColor.AQUA + "[MGA]" + ChatColor.WHITE + "MineguildAdmin" + ChatColor.BLUE + "V" + pdffile.getVersion() + "");
+		sender.sendMessage(ChatColor.AQUA + "[MGA]" + ChatColor.WHITE + "MineguildAdmin" + ChatColor.BLUE + "V" + pdffile.getVersion());
 		return true;
 		}
+		return false;
 	}
 return false;
 }
