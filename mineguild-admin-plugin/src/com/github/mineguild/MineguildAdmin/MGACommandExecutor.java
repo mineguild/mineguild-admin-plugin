@@ -235,17 +235,21 @@ public class MGACommandExecutor implements CommandExecutor {
 		    	 Player p = Bukkit.getPlayerExact(args[0]);
 		    	 String pname = p.getDisplayName();
 		    	 if(p != null){
-					 if (args[1].equalsIgnoreCase("c") || args[1].equals("1")){
+					 if (args[1].equalsIgnoreCase("c") || args[1].equals("1") && p != null){
 						 p.setGameMode(GameMode.CREATIVE);
 						 sender.sendMessage(ChatColor.GOLD + pname + " is now in creative mode!");
 						 return true;
 					 }
-					 if(args[1].equalsIgnoreCase("s") || args[1].equals("0")){
+					 if(args[1].equalsIgnoreCase("s") || args[1].equals("0") && p != null){
 						 p.setGameMode(GameMode.SURVIVAL);
 						 sender.sendMessage(ChatColor.GOLD + pname + " is now in survival mode!");
 						 return true;
 					 }
 		    	 }
+		    	 else{
+					 sender.sendMessage(ChatColor.RED+"Player is not online!");
+					 return true;
+				 }
 		     }
 		 }
 		 if(cmd.getName().equalsIgnoreCase("spawn")){
