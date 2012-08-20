@@ -20,6 +20,8 @@ public void onEnable(){
 	//Sending commands to MGACommandExecutor
 	getCommand("mga").setExecutor(CMDEXE);
 	getCommand("gm").setExecutor(CMDEXE);
+	getCommand("heal").setExecutor(CMDEXE);
+	getCommand("check").setExecutor(CMDEXE);
 	
 	//Send message to console
 	getLogger().info("MineguildAdmin V" + pdffile.getVersion() + " has been enabled!");

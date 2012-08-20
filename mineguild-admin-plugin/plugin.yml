@@ -1,6 +1,10 @@
 name: MineguildAdmin
 main: com.github.mineguild.MineguildAdmin.Main
 version: 0.3
+website: http://www.mineguild.de
+author: Mineguild-TechAdmins
+description: >
+             A Plugin from The Mineguild Admins
 commands:
     mga:
         description: Basic MGA command
@@ -11,4 +15,14 @@ commands:
         description: Change gamemode
         usage: /gm [player]
         permission: mga.gm
+        permission-message: You dont have permissions to do this.
+    heal:
+        description: heals
+        usage: /heal [player]
+        permission: mga.heal
+        permission-message: You dont have permissions to do this.
+    check:
+        description: checks player (only health at mom)
+        usage: /check [player]
+        permission: mga.check
         permission-message: You dont have permissions to do this.

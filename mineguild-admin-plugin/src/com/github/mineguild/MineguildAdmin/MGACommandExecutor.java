@@ -17,18 +17,53 @@ public class MGACommandExecutor implements CommandExecutor {
 	@Override
 	//Command interpreter
 		public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
-			if(cmd.getName().equalsIgnoreCase("mga")){
+        boolean sucess = false;
+		if(cmd.getName().equalsIgnoreCase("mga")){
 				//If the args are length 0 or the args[0] isnt equal "version" it will return false
 				if (args.length == 0 || !args[0].equalsIgnoreCase("version")){
-					return false;
+					sucess = false;
 				}
 				if (args[0].equalsIgnoreCase("version")) {
 				//Show version to sender and return true if the value of args[0] is equal to "version"
 				sender.sendMessage("MineguildAdmin V0.3");
-				return true;
+				sucess = true;
 				}
 			}
-		//Introducing /gm command
+			//Introducing /heal command
+		 if(cmd.getName().equalsIgnoreCase("heal")){
+			 //If there are no args, simply act with the command sender
+			 if(args.length == 0){
+				 //Only do this if the sender is instanceof player
+				 if(sender instanceof Player){
+				 Player p = (Player) sender;
+				 //set max Health and message
+					 p.setHealth(20);
+					 p.sendMessage(ChatColor.RED+"You feel restored");
+				 }
+				 //If the sender is not instanceof player send message with console use back to the sender
+				 else {
+					 sender.sendMessage(ChatColor.RED+"Please use /heal <player> on console!");
+					 sucess = true;
+				 } 
+			 }
+		 
+	     //If the args have the length 1 continue
+		 if(args.length == 1) {
+			 Player p = Bukkit.getPlayerExact(args[0]);
+			 //If the above defined player isn´t null continue
+			 if(p != null){
+				 //set max Health and message
+				 p.setHealth(20);
+				 p.sendMessage(ChatColor.RED+"You feel restored");
+			 
+			 }
+			 //If output of Bukkit.getPlayerExact(args[0] was null, send error message.
+			 else {
+				 sender.sendMessage(ChatColor.RED+"Player is not online!");
+				 sucess = true;
+			 }
+		 }
+		    //Introducing /gm command
 		 if(cmd.getName().equalsIgnoreCase("gm")){
 			 //If there are no args, simply act with the command sender
 			 if(args.length == 0){
@@ -39,21 +74,20 @@ public class MGACommandExecutor implements CommandExecutor {
 				 //Also returning true, for the correctness
 					 if (p.getGameMode().equals(GameMode.SURVIVAL)){
 						 p.setGameMode(GameMode.CREATIVE);
-						 return true;
+						 sucess = true;
 					 }
 					 else if (p.getGameMode().equals(GameMode.CREATIVE)){
 						 p.setGameMode(GameMode.SURVIVAL);
-						 return true;
+						 sucess = true;
 					 }
 				 }
 				 //If the sender is not instanceof player send message with console use back to the sender
 				 else {
 					 sender.sendMessage(ChatColor.RED+"Please use /gm <player> on console!");
-					 return true;
+					 sucess = true;
 				 } 
 			 }
-		 }
-		
+
 		     //If the args have the length 1 continue
 			 if(args.length == 1) {
 				 Player p = Bukkit.getPlayerExact(args[0]);
@@ -65,33 +99,33 @@ public class MGACommandExecutor implements CommandExecutor {
 						 p.setGameMode(GameMode.CREATIVE);
 						 sender.sendMessage(ChatColor.GOLD + "Target is now in creative mode!");
 						 p.sendMessage(ChatColor.GOLD + "You are now in creative mode!");
-						 return true;
+						 sucess = true;
 					 }
 					 else if (p.getGameMode().equals(GameMode.CREATIVE)){
 						 p.setGameMode(GameMode.SURVIVAL);
 						 sender.sendMessage(ChatColor.GOLD + "Target is now in survival mode!");
 						 p.sendMessage(ChatColor.GOLD + "You are now in survival mode!");
-						 return true;
+						 sucess = true;
 					 }
 					 else if (args[1].equalsIgnoreCase("c")){
 						 p.setGameMode(GameMode.CREATIVE);
 						 sender.sendMessage(ChatColor.GOLD + "Target is now in creative mode!");
-						 return true;
+						 sucess = true;
 					 }
 					 else if(args[1].equalsIgnoreCase("s")){
 						 p.setGameMode(GameMode.SURVIVAL);
 						 sender.sendMessage(ChatColor.GOLD + "Target is now in survival mode!");
-						 return true;
+						 sucess = true;
 					 }
 				 
 				 }
 				 //If output of Bukkit.getPlayerExact(args[0] was null, send error message.
 				 else {
 					 sender.sendMessage(ChatColor.RED+"Player is not online!");
-					 return true;
+					 sucess = true;
 				 }
 			 }
-		 return false;
+		 return sucess;
 	}
 
 }
