@@ -113,12 +113,16 @@ public class MGACommandExecutor implements CommandExecutor {
 							 gm = "creative";
 						 }
 						 double health = p.getHealth();
-						 health = health / 2.0;
 						 double hunger = p.getFoodLevel();
+						 double prohunger;
+						 double prohealth;
+						 prohunger = (hunger * 5);
+						 prohealth = (health * 5);
+						 health = health / 2.0;
 						 hunger = hunger / 2.0;
 
-						 p.sendMessage(pre + "Your Health is" + yellow + health);
-						 p.sendMessage(pre + "Your Hunger is" + yellow + hunger);
+						 p.sendMessage(pre + "Your Health is" + yellow + health + yellow + health + white + "(" + ChatColor.YELLOW + prohealth + "%" + ChatColor.WHITE + ")");
+						 p.sendMessage(pre + "Your Hunger is" + yellow + hunger + yellow + health + white + "(" + ChatColor.YELLOW + prohunger + "%" + ChatColor.WHITE + ")");
 						 p.sendMessage(pre + "Your currently in" + yellow + gm + white +"Gamemode");
 						 return true;
 						 }
