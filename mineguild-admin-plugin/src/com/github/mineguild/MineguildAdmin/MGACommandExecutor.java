@@ -122,7 +122,7 @@ public class MGACommandExecutor implements CommandExecutor {
 					 } 
 				 }
 			 
-		     //If the args have the length 1 continue
+		     //If the args have the length 1 continue PENIS
 				 else {
 				 Player p = Bukkit.getPlayerExact(args[0]);
 				 //If the above defined player isn´t null continue
