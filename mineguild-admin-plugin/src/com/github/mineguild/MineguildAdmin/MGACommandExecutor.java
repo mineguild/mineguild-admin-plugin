@@ -39,6 +39,7 @@ public class MGACommandExecutor implements CommandExecutor {
 				 //set max Health and message
 					 p.setHealth(20);
 					 p.sendMessage(ChatColor.RED+"You feel restored");
+					 return true;
 				 }
 				 //If the sender is not instanceof player send message with console use back to the sender
 				 else {
@@ -75,6 +76,7 @@ public class MGACommandExecutor implements CommandExecutor {
 					 //set max hunger level and message
 						 p.setFoodLevel(20);
 						 p.sendMessage(ChatColor.RED+"You feeded yourself");
+						 return true;
 					 }
 					 //If the sender is not instanceof player send message with console use back to the sender
 					 else {
