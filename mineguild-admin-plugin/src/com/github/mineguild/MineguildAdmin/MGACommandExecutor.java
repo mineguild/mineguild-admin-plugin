@@ -52,8 +52,10 @@ public class MGACommandExecutor implements CommandExecutor {
 			 //If the above defined player isn´t null continue
 			 if(p != null){
 				 //set max Health and message
+				 String string3 = p.getName();
 				 p.setHealth(20);
 				 p.sendMessage(ChatColor.RED+"You feel restored");
+				 sender.sendMessage(ChatColor.RED+"You just healed" + string3);
 			 
 			 }
 			 //If output of Bukkit.getPlayerExact(args[0] was null, send error message.
@@ -88,7 +90,7 @@ public class MGACommandExecutor implements CommandExecutor {
 					 //set max hunger level and message both
 					 String string2 = sender.getName();
 					 p.setFoodLevel(20);
-					 p.sendMessage(ChatColor.RED+"You feeded yourself");
+					 p.sendMessage(ChatColor.RED+"You were feeded");
 					 sender.sendMessage(ChatColor.RED+"You just feeded" + string2);
 				 
 				 }
