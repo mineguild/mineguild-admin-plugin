@@ -26,3 +26,8 @@ commands:
         usage: /check [player]
         permission: mga.check
         permission-message: You dont have permissions to do this.
+    feed:
+        description: feeds
+        usage: /feed [player]
+        permission: mga.feed
+        permission-message: You dont have permissions to do this.

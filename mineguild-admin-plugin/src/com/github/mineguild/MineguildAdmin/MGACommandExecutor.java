@@ -10,14 +10,13 @@ import org.bukkit.entity.Player;
 
 
 public class MGACommandExecutor implements CommandExecutor {
-	
-	
 	public MGACommandExecutor(Main plugin) {
 	}
 	@Override
 	//Command interpreter
 		public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
         boolean sucess = false;
+//Introducing /mga command
 		if(cmd.getName().equalsIgnoreCase("mga")){
 				//If the args are length 0 or the args[0] isnt equal "version" it will return false
 				if (args.length == 0 || !args[0].equalsIgnoreCase("version")){
@@ -28,8 +27,8 @@ public class MGACommandExecutor implements CommandExecutor {
 				sender.sendMessage("MineguildAdmin V0.3");
 				sucess = true;
 				}
-			}
-			//Introducing /heal command
+		}
+//Introducing /heal command
 		 if(cmd.getName().equalsIgnoreCase("heal")){
 			 //If there are no args, simply act with the command sender
 			 if(args.length == 0){
@@ -48,7 +47,7 @@ public class MGACommandExecutor implements CommandExecutor {
 			 }
 		 
 	     //If the args have the length 1 continue
-		 if(args.length == 1) {
+			 else {
 			 Player p = Bukkit.getPlayerExact(args[0]);
 			 //If the above defined player isn´t null continue
 			 if(p != null){
@@ -63,7 +62,86 @@ public class MGACommandExecutor implements CommandExecutor {
 				 sucess = true;
 			 }
 		 }
-		    //Introducing /gm command
+//Introducing /feed command
+			 if(cmd.getName().equalsIgnoreCase("feed")){
+				 //If there are no args, simply act with the command sender
+				 if(args.length == 0){
+					 //Only do this if the sender is instanceof player
+					 if(sender instanceof Player){
+					 Player p = (Player) sender;
+					 //set max hunger level and message
+						 p.setFoodLevel(20);
+						 p.sendMessage(ChatColor.RED+"You feeded yourself");
+					 }
+					 //If the sender is not instanceof player send message with console use back to the sender
+					 else {
+						 sender.sendMessage(ChatColor.RED+"Please use /heal <player> on console!");
+						 sucess = true;
+					 } 
+				 }
+			 
+		     //If the args have the length 1 continue
+				 else {
+				 Player p = Bukkit.getPlayerExact(args[0]);
+				 //If the above defined player isn´t null continue
+				 if(p != null){
+					 //set max hunger level and message both
+					 String string2 = sender.getName();
+					 p.setFoodLevel(20);
+					 p.sendMessage(ChatColor.RED+"You feeded yourself");
+					 sender.sendMessage(ChatColor.RED+"You just feeded" + string2);
+				 
+				 }
+				 //If output of Bukkit.getPlayerExact(args[0] was null, send error message.
+				 else {
+					 sender.sendMessage(ChatColor.RED+"Player is not online!");
+					 sucess = true;
+				 }
+			 }
+//Introducing /check command
+			 if(cmd.getName().equalsIgnoreCase("check")){
+				 //If there are no args, simply act with the command sender
+				 if(args.length == 0){
+					 //Only do this if the sender is instanceof player
+					 if(sender instanceof Player){
+					 Player p = (Player) sender;
+					 //check health then /2 and print
+						 double health = p.getHealth();
+						 health = health / 2.0;
+						 double hunger = p.getFoodLevel();
+						 hunger = hunger / 2.0;
+						 p.sendMessage(ChatColor.RED+"Your Health is" + health);
+						 p.sendMessage(ChatColor.RED+"Your Hunger is" + hunger);
+					 }
+					 //If the sender is not instanceof player send message with console use back to the sender
+					 else {
+						 sender.sendMessage(ChatColor.RED+"Please use /heal <player> on console!");
+						 sucess = true;
+					 } 
+				 }
+			 
+		     //If the args have the length 1 continue
+				 else {
+				 Player p = Bukkit.getPlayerExact(args[0]);
+				 //If the above defined player isn´t null continue
+				 if(p != null){
+					 //set max Health and message
+					 double health = p.getHealth();
+					 String string1 = p.getName();
+					 double hunger = p.getFoodLevel();
+					 hunger = hunger / 2.0;
+					 health = health / 2.0;
+					 sender.sendMessage(ChatColor.RED + string1 +"'s Health is" + health);
+					 sender.sendMessage(ChatColor.RED + string1 +"'s Hunger is" + hunger);
+				 
+				 }
+				 //If output of Bukkit.getPlayerExact(args[0] was null, send error message.
+				 else {
+					 sender.sendMessage(ChatColor.RED+"Player is not online!");
+					 sucess = true;
+				 }
+			 }
+//Introducing /gm command
 		 if(cmd.getName().equalsIgnoreCase("gm")){
 			 //If there are no args, simply act with the command sender
 			 if(args.length == 0){
@@ -125,8 +203,9 @@ public class MGACommandExecutor implements CommandExecutor {
 					 sucess = true;
 				 }
 			 }
-		 return sucess;
 	}
-
-}
+		 else {
+			 sucess = false;
+		 }
+		 return sucess;
 
