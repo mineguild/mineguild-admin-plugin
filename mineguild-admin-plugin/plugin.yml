@@ -17,12 +17,12 @@ commands:
         permission: mga.gm
         permission-message: You dont have permissions to do this.
     heal:
-        description: heals
+        description: Heals you or the targeted player.
         usage: /heal [player]
         permission: mga.heal
         permission-message: You dont have permissions to do this.
     check:
-        description: checks player (only health at mom)
+        description: Checks player stats.
         usage: /check [player]
         permission: mga.check
         permission-message: You dont have permissions to do this.
@@ -40,4 +40,9 @@ commands:
         description: Sets the spawn-location
         usage: /setspawn
         permission: mga.setspawn
+        permission-message: You dont have permissions to do this.
+    i:
+        description: Prints out debug messages.
+        usage: /i [item] [amount]
+        permission: mga.i
         permission-message: You dont have permissions to do this.
