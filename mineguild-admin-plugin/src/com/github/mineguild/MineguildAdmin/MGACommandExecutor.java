@@ -42,7 +42,7 @@ public class MGACommandExecutor implements CommandExecutor {
 	     //If the args have the length 1 continue
 			 else {
 			 Player p = Bukkit.getPlayerExact(args[0]);
-			 //If the above defined player isnÂ´t null continue
+			 //If the above defined player isn´t null continue
 			 if(p != null){
 				 //set max Health and message
 				 String pname = p.getName();
