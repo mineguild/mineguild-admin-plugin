@@ -315,13 +315,16 @@ public class MGACommandExecutor implements CommandExecutor {
 		 }
 		 if(cmd.getName().equalsIgnoreCase("i")){
 			 if(sender instanceof Player){
-				 if(args.length <=1)
+				 if(args.length <= 1){
 					 return false;
+				 }
 				 else{
-					 sender.sendMessage(args[0]+args[1]);
+					 sender.sendMessage(args[0] + args[1] + "Test");
 					 return true;
 				 }
 			 }
+			 else
+			 return false;
 		 }
 	return false;
 	}
