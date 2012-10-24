@@ -42,7 +42,7 @@ public class MGACommandExecutor implements CommandExecutor {
 	     //If the args have the length 1 continue
 			 else {
 			 Player p = Bukkit.getPlayerExact(args[0]);
-			 //If the above defined player isn´t null continue
+			 //If the above defined player isnÂ´t null continue
 			 if(p != null){
 				 //set max Health and message
 				 String pname = p.getName();
@@ -80,7 +80,7 @@ public class MGACommandExecutor implements CommandExecutor {
 		     //If the args have the length 1 continue
 				 else {
 				 Player p = Bukkit.getPlayerExact(args[0]);
-				 //If the above defined player isn´t null continue
+				 //If the above defined player isnÂ´t null continue
 				 if(p != null){
 					 //set max hunger level and message both
 					 String pname = p.getName();
@@ -135,7 +135,7 @@ public class MGACommandExecutor implements CommandExecutor {
 			     //If the args have the length 1 continue
 					 if(args.length == 1) {
 					 Player p = Bukkit.getPlayerExact(args[0]);
-					 //If the above defined player isn´t null continue
+					 //If the above defined player isnÂ´t null continue
 					 if(p != null){
 						 //set max Health and message
 						 double health = p.getHealth();
@@ -220,7 +220,7 @@ public class MGACommandExecutor implements CommandExecutor {
 		    	 }
 		    	 else{
 		    		 if(sender instanceof Player){
-						 //If the above defined player isn´t null continue
+						 //If the above defined player isnÂ´t null continue
 						 Player p = Bukkit.getPlayerExact(args[0]);
 						 if(p != null){
 							 String pname = p.getDisplayName();
@@ -313,8 +313,15 @@ public class MGACommandExecutor implements CommandExecutor {
 				 return true;
 			 }
 		 }
+		 if(cmd.getName().equalsIgnoreCase("i")){
+			 if(args.length <=1)
+				 return false;
+			 else{
+				 
+				 return true;
+			 }
+		 }
 	return false;
 	}
+	
 }
-
-
