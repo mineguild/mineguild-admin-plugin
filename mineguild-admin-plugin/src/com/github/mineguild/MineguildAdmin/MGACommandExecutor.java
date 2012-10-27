@@ -4,12 +4,17 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 
 
+@SuppressWarnings("unused")
 public class MGACommandExecutor implements CommandExecutor {
 	public MGACommandExecutor(Main plugin) {
 	}
@@ -319,7 +324,17 @@ public class MGACommandExecutor implements CommandExecutor {
 					 return false;
 				 }
 				 else{
-					 sender.sendMessage(args[0] + args[1] + "Test");
+					 Player player = ((Player) sender).getPlayer();
+					 PlayerInventory inventory = player.getInventory();
+					 if(Material.getMaterial(Material.matchMaterial(args[0]).toString()) != null){
+						 String item = Material.matchMaterial(args[0]).toString();
+						 Material mat = Material.getMaterial(item);
+						 int amount = Integer.parseInt(args[1]);
+						 ItemStack itemstack = new ItemStack(mat, amount);
+						 inventory.addItem(itemstack);
+					 }
+					 else
+						 sender.sendMessage(pre + Aqua + "Please enter a valid item.");
 					 return true;
 				 }
 			 }
