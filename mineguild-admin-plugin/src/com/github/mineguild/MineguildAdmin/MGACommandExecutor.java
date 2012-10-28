@@ -309,8 +309,11 @@ public class MGACommandExecutor implements CommandExecutor {
 				 int x = p.getLocation().getBlockX();
 				 int y = p.getLocation().getBlockY();
 				 int z = p.getLocation().getBlockZ();
-				 p.getWorld().setSpawnLocation(x, y, z);
-				 sender.sendMessage(pre + "The spawn point was set to you location");
+				 Location loc = p.getLocation();
+				 String s = loc.toString();
+//				 p.getWorld().setSpawnLocation(x, y, z);
+//				 sender.sendMessage(pre + "The spawn point was set to you location");
+				 sender.sendMessage(loc + "Test");
 				 return true;
 			 }
 			 else{
