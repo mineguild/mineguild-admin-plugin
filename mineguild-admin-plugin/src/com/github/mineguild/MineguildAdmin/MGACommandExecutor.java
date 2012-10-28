@@ -12,13 +12,12 @@ import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
-
-
+import org.bukkit.util.Vector;
 @SuppressWarnings("unused")
+
 public class MGACommandExecutor implements CommandExecutor {
 	public MGACommandExecutor(Main plugin) {
 	}
-	@SuppressWarnings({ "unused"})
 	@Override
 	//Command interpreter
 		public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
@@ -302,25 +301,7 @@ public class MGACommandExecutor implements CommandExecutor {
 				 return false;
 			 }
 		 }
-//Introducing /setspawn
-		 if(cmd.getName().equalsIgnoreCase("setspawn")){
-			 if(sender instanceof Player){
-				 Player p = (Player) sender;
-				 int x = p.getLocation().getBlockX();
-				 int y = p.getLocation().getBlockY();
-				 int z = p.getLocation().getBlockZ();
-				 Location loc = p.getLocation();
-				 String s = loc.toString();
-//				 p.getWorld().setSpawnLocation(x, y, z);
-//				 sender.sendMessage(pre + "The spawn point was set to you location");
-				 sender.sendMessage(loc + "Test");
-				 return true;
-			 }
-			 else{
-				 sender.sendMessage(pre + ChatColor.RED + "You only can use this command as player!");
-				 return true;
-			 }
-		 }
+
 		 if(cmd.getName().equalsIgnoreCase("i")){
 			 if(sender instanceof Player){
 				 if(args.length <= 1){
