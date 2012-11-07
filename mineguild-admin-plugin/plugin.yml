@@ -1,8 +1,12 @@
 name: MineguildAdmin
 main: com.github.mineguild.MineguildAdmin.Main
-version: 0.3.5
+version: 0.1
 website: http://www.mineguild.de
 author: Mineguild-TechAdmins
 description: >
              A Plugin made by the Mineguild Admins
 commands:
+        gm:
+            description: Wechselt in den jeweilig anderen GameMode
+            usage: /<command> [player]
+            permission: mga.gm
