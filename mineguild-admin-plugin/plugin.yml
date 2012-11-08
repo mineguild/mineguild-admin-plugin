@@ -10,3 +10,7 @@ commands:
             description: Wechselt in den jeweilig anderen GameMode
             usage: /<command> [player]
             permission: mga.gm
+        setspawn:
+            description: Setzt den Spawn
+            usage: /<command> [player]
+            permission: mga.setspawn
